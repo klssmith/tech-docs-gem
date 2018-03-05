@@ -49,6 +49,14 @@
             <%= yield %>
           </main>
 
+          <% if config[:tech_docs][:show_source_footer] %>
+            <ul class="meta-links__list">
+              <li><%= link_to "View source", source_urls.view_source_url %></li>
+              <li><%= link_to "Report problem", source_urls.report_issue_url %></li>
+              <li><%= link_to "GitHub Repo", source_urls.repo_url %></li>
+            </ul>
+          <% end %>
+
           <%= partial "layouts/footer" %>
         </div>
       </div>

@@ -12,6 +12,7 @@ require 'govuk_tech_docs/table_of_contents/helpers'
 require 'govuk_tech_docs/tech_docs_html_renderer'
 require 'govuk_tech_docs/unique_identifier_extension'
 require 'govuk_tech_docs/unique_identifier_generator'
+require 'govuk_tech_docs/source_footer'
 
 module GovukTechDocs
   def self.configure(context)
@@ -45,6 +46,7 @@ module GovukTechDocs
 
     context.helpers do
       include GovukTechDocs::TableOfContents::Helpers
+      include GovukTechDocs::SourceFooter
     end
 
     context.page '/*.xml', layout: false

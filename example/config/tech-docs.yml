@@ -21,3 +21,6 @@ max_toc_heading_level: 6
 
 # Prevent robots from indexing (e.g. whilst in development)
 prevent_indexing: false
+
+show_source_footer: true
+github_repo: alphagov/example-repo

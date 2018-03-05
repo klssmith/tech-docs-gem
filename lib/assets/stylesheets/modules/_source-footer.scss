@@ -1,0 +1,19 @@
+.meta-links__list {
+  margin: $gutter*2 $gutter-half 10px $gutter-half;
+  padding: 0;
+  max-width: 40em;
+
+  @include media(tablet) {
+    margin: 0 ($gutter + 2px) 0 ($gutter + 2px);
+  }
+
+  a {
+    margin-right: $gutter-half;
+  }
+
+  li {
+    display: inline-block;
+    list-style: none;
+    margin: 2px 0;
+  }
+}
