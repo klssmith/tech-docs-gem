@@ -10,6 +10,7 @@ RSpec.describe "The tech docs template" do
     when_the_site_is_created
     and_i_visit_the_homepage
     then_there_is_a_heading
+    and_there_are_proper_meta_tags
   end
 
   def when_the_site_is_created
@@ -22,5 +23,9 @@ RSpec.describe "The tech docs template" do
 
   def then_there_is_a_heading
     expect(page).to have_css 'h1', text: 'Hello, World!'
+  end
+
+  def and_there_are_proper_meta_tags
+    expect(page).to have_title 'GOV.UK Documentation Example | My First Service'
   end
 end
