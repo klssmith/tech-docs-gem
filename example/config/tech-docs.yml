@@ -21,3 +21,8 @@ max_toc_heading_level: 6
 
 # Prevent robots from indexing (e.g. whilst in development)
 prevent_indexing: false
+
+algolia_search:
+  enabled: true
+  api_key: 7acf46aa10b80bb6f92e7138f84bfacf
+  index_name: publishing_service_gov_uk

@@ -16,6 +16,10 @@
 
     <link rel="canonical" href="<%= config[:tech_docs][:host] %><%= current_page.url %>">
 
+    <% if config[:tech_docs].dig(:algolia_search, :enabled) %>
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.css"/>
+    <% end %>
+
     <%= stylesheet_link_tag :print, media: 'print' %>
     <%= javascript_include_tag :application %>
   </head>
@@ -36,6 +40,7 @@
 
       <div class="app-pane__body"<%= " data-module=\"#{yield_content(:toc_module)}\"" if content_for? :toc_module %>>
         <div class="app-pane__toc">
+          <%= partial 'layouts/search' %>
           <div class="toc" data-module="table-of-contents">
             <a href="#" class="toc__close js-toc-close" aria-controls="toc" aria-label="Hide table of contents"></a>
             <nav id="toc" class="js-toc-list toc__list" aria-labelledby="toc-heading">
@@ -53,6 +58,17 @@
         </div>
       </div>
     </div>
+
+    <% if config[:tech_docs].dig(:algolia_search, :enabled) %>
+      <script src="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js"></script>
+      <script>
+        docsearch({
+          apiKey: '<%= config[:tech_docs].dig(:algolia_search, :api_key) %>',
+          indexName: '<%= config[:tech_docs].dig(:algolia_search, :index_name) %>',
+          inputSelector: '#tech-docs-search'
+        });
+      </script>
+    <% end %>
 
     <%= partial 'layouts/analytics' %>
   </body>
